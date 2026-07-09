@@ -285,18 +285,20 @@ export type AttemptResult<E, T> =
 
 ```typescript
 // ports/outbound/i-vault-port.ts
+// Slice 1 ships only the two methods below — read-only, enough to power
+// GetDashboardStateUseCase. writeFrontmatterField and appendToNote join this
+// interface in Slice 6 (calendar tweaks + task states); readChecklistCompletions
+// joins in Slice 4 (non-code staleness). Adding a port method ahead of the slice
+// that needs it means shipping an untested stub — don't.
 export interface IVaultPort {
   readFrontmatter(notePath: string): Promise<AttemptResult<VaultError, Record<string, unknown>>>
-  writeFrontmatterField(notePath: string, field: string, value: unknown): Promise<AttemptResult<VaultError, void>>
   listSelectedProjects(): Promise<AttemptResult<VaultError, SelectedProject[]>>
-  appendToNote(notePath: string, section: string, content: string): Promise<AttemptResult<VaultError, void>>
-  readChecklistCompletions(notePath: string): Promise<AttemptResult<VaultError, { label: string; completedAt: string }[]>>
 }
 
 export type VaultError =
   | { type: 'note_not_found'; path: string }
   | { type: 'malformed_frontmatter'; path: string; reason: string }
-  | { type: 'write_failed'; path: string; reason: string }
+  // 'write_failed' joins this union in Slice 6, alongside the write methods above.
 ```
 
 ```typescript
@@ -465,11 +467,11 @@ Claude CLI adapter tests use recorded fixtures (`adapters/agent/__fixtures__/*.j
 
 Build in this order. Don't start a slice until the previous one's done criteria are met — this is the mechanism that prevents the plan changing under itself day to day.
 
-### Slice 1 — Vault read layer
+### Slice 1 — Vault read layer ✅ done
 - `IVaultPort` defined, `FilesystemVaultAdapter` implemented
 - `listSelectedProjects()` correctly parses `dashboard-status` frontmatter
 - `GetDashboardStateUseCase` returns real selected-project data
-- Unit tests on frontmatter parsing edge cases (missing field, malformed YAML)
+- Unit tests on frontmatter parsing edge cases (missing field, malformed YAML, note-not-found) — 9 tests passing, `pnpm typecheck` clean
 
 ### Slice 2 — Grid UI, read-only
 - `app/page.tsx` renders the grid from `GetDashboardStateUseCase`
