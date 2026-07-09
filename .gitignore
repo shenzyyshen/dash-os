@@ -1,6 +1,7 @@
 node_modules/
 .next/
 dist/
+*.tsbuildinfo
 
 # personal config and secrets — never commit
 .env

@@ -5,6 +5,9 @@
   "description": "A grid-based accountability dashboard connecting an Obsidian vault, Google Calendar, and GitHub activity to Claude Code.",
   "type": "module",
   "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit"
@@ -13,11 +16,16 @@
   "packageManager": "pnpm@10.33.0",
   "devDependencies": {
     "@types/node": "^26.1.1",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
     "typescript": "^7.0.2",
     "vitest": "^4.1.10"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
+    "next": "^16.2.10",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
     "zod": "^4.4.3"
   }
 }
