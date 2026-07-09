@@ -1,0 +1,10 @@
+node_modules/
+.next/
+dist/
+
+# personal config and secrets — never commit
+.env
+.env.local
+dash.config.json
+
+.DS_Store

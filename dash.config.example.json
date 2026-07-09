@@ -1,0 +1,11 @@
+{
+  "vaultPath": "/absolute/path/to/your/obsidian/vault",
+  "watchListNotePath": "Watch List.md",
+  "defaultTone": "calm-coach",
+  "dayTemplates": {
+    "deep-work": { "workoutMinutesDefault": 30 },
+    "vacation": { "workoutMinutesDefault": 15 },
+    "travel": { "workoutMinutesDefault": 15 }
+  },
+  "researchJob": { "scheduleCron": "0 3 * * *" }
+}
