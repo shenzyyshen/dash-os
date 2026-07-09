@@ -6,6 +6,14 @@
 
 ---
 
+## Start here next session
+
+**Next action:** Slice 3 (Google Calendar) is blocked on OAuth setup — that needs your interactive input (browser consent), not just code. Either do the OAuth setup first, or jump to Slice 4 prep / pick more projects to select while that's pending.
+
+**First real project selected:** `Bases/projects/Spain/Grants/Grants - Full Breakdown.md` — `dashboard-status: selected`, confirmed rendering live on the grid ("Spain Grants" tile, 1 tracked). That edit is sitting uncommitted in the vault by design — the vault has its own daily auto-backup commit, not something this project touches.
+
+**Known stray item, not yet cleaned up:** `Brain/Dash/` — an orphaned old clone of `shenzyyshen/Dash`, stuck at its first commit, unrelated to the real work in `/Users/shenmay/Projects_/Dash`. Flagged, not deleted — ask before removing it.
+
 ## Repo setup
 
 - [x] Public repo created — `shenzyyshen/dash-os`
