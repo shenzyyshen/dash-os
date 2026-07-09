@@ -30,11 +30,13 @@
   - [x] 9 tests passing, `pnpm typecheck` clean
   - Commit: `adfd487`
 
-- [ ] **Slice 2 — Grid UI, read-only**
-  - [ ] Next.js App Router scaffolded
-  - [ ] `src/app/page.tsx` renders the grid from `GetDashboardStateUseCase`
-  - [ ] No triggers yet — visibility only
-  - [ ] Grid/techy visual direction established
+- [x] **Slice 2 — Grid UI, read-only**
+  - [x] Next.js App Router scaffolded
+  - [x] `src/app/page.tsx` renders the grid from `GetDashboardStateUseCase`
+  - [x] No triggers yet — visibility only
+  - [x] Grid/techy visual direction established (dark surface, dataviz-skill status palette, icon+label badges, monospace data fields)
+  - [x] Verified against the real vault via `pnpm dev` — correctly shows empty state (0 notes have `dashboard-status` yet)
+  - Commit: `2f58324`
 
 - [ ] **Slice 3 — Google Calendar integration**
   - [ ] Blocked on Google OAuth credentials above
